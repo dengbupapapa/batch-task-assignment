@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<script type="module">
+
+import batchTaskAssignment from './index.test.js';
+
+function ajax({sucess,data}){
+    setTimeout(function(){
+        for(let i=0; i<data.length; i++){
+            data[i] = 'sucess'+JSON.stringify(data[i])
+        }
+        // console.log(data);
+        sucess(data);
+    },100)
+}
+
+
+//setting config
+let dispose = batchTaskAssignment({delay:100,unitMaximum:20});
+//definition dispose
+let task = dispose(function(unitData,resolves){
+
+    ajax({
+        data:unitData,
+        sucess:function(result){
+
+            resolves(result);
+
+        },
+        error(e){
+            resolves(Array(unitData.length).fill(e));
+        }
+    })
+
+
+
+})
+
+//definition task
+function myTask(lnglat){
+    return task(lnglat)
+}
+
+function test(){
+
+    let values = [];
+    let lengths = [];
+    let num = 0
+    for(let i = 0; i<100; ){
+        let lnglats = [];
+        for(let j = 0; j< Math.floor(Math.random()*10+1); j++){
+            let lng = i++;
+            let lat = i++;
+            lnglats.push({lng,lat});
+            num=i;
+        }
+        setTimeout(function(){
+            lengths.push(lnglats.length);
+            myTask(lnglats).then(function(value){
+                let oldVal = [];
+                for(let k=0; k<value.length;k++){
+                    let {lng,lat} = JSON.parse(value[k].replace('sucess',''));
+                    oldVal.push({lng,lat});
+                    if(values[lng])alert('error');
+                    if(values[lat])alert('error');
+                    values[lng] = lng;
+                    values[lat] = lat;
+                }
+
+                if(JSON.stringify(lnglats)!==JSON.stringify(oldVal)) alert('error');
+                console.log(JSON.stringify(lnglats),value);
+
+            });
+        },Math.random()*1000);
+
+    }
+    console.log(lengths,values,num);
+
+}
+
+test();
+</script>
+</body>
+</html>
