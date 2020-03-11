@@ -4,7 +4,14 @@ Batch task assignment, reduction of batch task processor trigger, control batch 
 
 ## Frequently Asked Questions
 > Frequent calls to batch processing interfaces.
+
 > The interface frequently calls methods for batch layout calculation.
+
+## Flow chart
+### Before
+![before](./before.jpg)
+### Upgrade
+![upgrade](./upgrade.png)
 
 ### install
 ```
@@ -76,7 +83,7 @@ let dispose = batchTaskAssignment({delay:100,unitMaximum:20});
 
 ```
 
-## dispose (default undefined : require)
+## dispose (default undefined : require<Function>)
 
 Definition dispose callback Function.
     . unitData: Data processed per unit length.
@@ -99,10 +106,10 @@ let task = dispose(function(unitData,resolves){
 
 })
 ```
-## task (default undefined)
+## task (default undefined : reqire<Array>)
 
 Task-related data
 
 ``` js
-task(data);
+task(data).then(()=>{});
 ```
