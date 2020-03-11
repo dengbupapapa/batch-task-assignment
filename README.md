@@ -9,9 +9,9 @@ Batch task assignment, reduction of batch task processor trigger, control batch 
 
 ## Flow chart
 ### Before
-![before](https://github.com/dengbupapapa/batch-task-assignment/blob/master/before.jpg)
+![before](https://github.com/dengbupapapa/batch-task-assignment/blob/master/image/before.png)
 ### Upgrade
-![upgrade](https://github.com/dengbupapapa/batch-task-assignment/blob/master/upgrade.png)
+![upgrade](https://github.com/dengbupapapa/batch-task-assignment/blob/master/image/upgrade.png)
 
 ### install
 ```
