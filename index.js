@@ -1,3 +1,4 @@
+import assert from 'assert';
 export default function batchTaskAssignment({
     delay=200,
     unitMaximum=10
@@ -6,10 +7,20 @@ export default function batchTaskAssignment({
     unitMaximum:10
 }) {
 
+    assert(typeof delay === 'number','delay typeof number');
+    assert(delay >= 0,'delay is gte 0');
+
+    assert(typeof unitMaximum === 'number','unitMaximum typeof number');
+    assert(unitMaximum >= 0,'unitMaximum is gte 0');
+    assert(Math.floor(unitMaximum) === unitMaximum,'unitMaximum is integer');
+
+
     let timer;
     let working;
 
     return function dispose(disposeFn){
+
+        assert(typeof disposeFn ==='function','dispose callback instanceof function');
 
         //任务仓库相关参数
         let resolves = [];
@@ -55,6 +66,8 @@ export default function batchTaskAssignment({
 
         function resolvesCallback(unitResult){
 
+            assert(Object.prototype.toString.call(unitResult) === '[object Array]','unitResult instanceof Array');
+
             //在前面插入上一次递归遗留的数据
             unitResult.unshift(...unitResultTemporaryStorage.splice(0));
 
@@ -96,6 +109,8 @@ export default function batchTaskAssignment({
         }
 
         return function task(data) {
+
+            assert(Object.prototype.toString.call(data) === '[object Array]','task instanceof Array');
 
             return new Promise(function(resolve){
 
