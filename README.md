@@ -9,9 +9,9 @@ Batch task assignment, reduction of batch task processor trigger, control batch 
 
 ## Flow chart
 ### Before
-![before](./master/image/before.png)
+![before](./image/before.png)
 ### Upgrade
-![upgrade](./master/image/upgrade.png)
+![upgrade](./image/upgrade.png)
 
 ### install
 ```
