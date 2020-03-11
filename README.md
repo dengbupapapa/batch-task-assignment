@@ -9,9 +9,9 @@ Batch task assignment, reduction of batch task processor trigger, control batch 
 
 ## Flow chart
 ### Before
-![before](./before.jpg)
+![before](https://github.com/dengbupapapa/batch-task-assignment/blob/master/before.jpg)
 ### Upgrade
-![upgrade](./upgrade.png)
+![upgrade](https://github.com/dengbupapapa/batch-task-assignment/blob/master/upgrade.png)
 
 ### install
 ```
@@ -83,7 +83,7 @@ let dispose = batchTaskAssignment({delay:100,unitMaximum:20});
 
 ```
 
-## dispose (default undefined : require<Function>)
+## dispose (default undefined : require<*Function*>)
 
 Definition dispose callback Function.
     . unitData: Data processed per unit length.
@@ -106,7 +106,7 @@ let task = dispose(function(unitData,resolves){
 
 })
 ```
-## task (default undefined : reqire<Array>)
+## task (default undefined : require<*Array*>)
 
 Task-related data
 
