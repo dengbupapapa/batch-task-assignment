@@ -1,6 +1,6 @@
 {
   "name": "batch-task-assignment",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Batch task assignment, reduction of batch task processor trigger, control batch task processor single receive.",
   "main": "index.umd.js",
   "scripts": {
