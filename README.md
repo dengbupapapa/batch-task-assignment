@@ -86,8 +86,9 @@ let dispose = batchTaskAssignment({delay:100,unitMaximum:20});
 ## dispose (default undefined : require<*Function*>)
 
 Definition dispose callback Function.
-    . unitData: Data processed per unit length.
-    . resolves: Data processing complete callback, Need result data.
+    - unitData: Data processed per unit length.
+    - resolves: Data processing complete callback, Need result data.
+        - result: need result length equal to unitData length.
 
 ``` js
 let task = dispose(function(unitData,resolves){
