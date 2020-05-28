@@ -2302,6 +2302,8 @@ function batchTaskAssignment() {
 
             assert(Object.prototype.toString.call(data) === '[object Array]', 'task instanceof Array');
 
+            if (data.length === 0) return _Promise.resolve(null);
+
             return new _Promise(function (resolve) {
                 var _tasks$datas;
 

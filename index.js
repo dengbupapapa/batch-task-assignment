@@ -112,6 +112,8 @@ export default function batchTaskAssignment({
 
             assert(Object.prototype.toString.call(data) === '[object Array]','task instanceof Array');
 
+            if(data.length===0) return Promise.resolve(null);
+
             return new Promise(function(resolve){
 
                 //任务仓库存储
